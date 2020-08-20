@@ -1,0 +1,64 @@
+#hungfBoxCarousel {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+}
+
+#hungfBoxCarousel .carousel {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+#hungfBoxCarousel .carousel .carousel__cell {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: -webkit-transform 0.4s;
+  transition: -webkit-transform 0.4s;
+  transition: transform 0.4s;
+  transition: transform 0.4s, -webkit-transform 0.4s;
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
+}
+
+#hungfBoxCarousel .carousel .carousel__cell:nth-child(9n+1) {
+  background: red;
+}
+
+#hungfBoxCarousel .carousel .carousel__cell:nth-child(9n+2) {
+  background: #ffaa00;
+}
+
+#hungfBoxCarousel .carousel .carousel__cell:nth-child(9n+3) {
+  background: #aaff00;
+}
+
+#hungfBoxCarousel .carousel .carousel__cell:nth-child(9n+4) {
+  background: lime;
+}
+
+#hungfBoxCarousel .carousel .carousel__cell:nth-child(9n+5) {
+  background: #00ffaa;
+}
+
+#hungfBoxCarousel .carousel .carousel__cell:nth-child(9n+6) {
+  background: #00aaff;
+}
+
+#hungfBoxCarousel .carousel .carousel__cell:nth-child(9n+7) {
+  background: blue;
+}
+
+#hungfBoxCarousel .carousel .carousel__cell:nth-child(9n+8) {
+  background: #aa00ff;
+}
+
+#hungfBoxCarousel .carousel .carousel__cell:nth-child(9n+0) {
+  background: #ff00aa;
+}
+/*# sourceMappingURL=BoxCarousel.css.map */

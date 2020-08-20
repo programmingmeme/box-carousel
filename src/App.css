@@ -1,6 +1,11 @@
 .App {
   text-align: center;
 }
+.box {
+  margin: 0 auto;
+  height: 80vh;
+  width: 45vh;
+}
 
 .App-logo {
   height: 40vmin;
