@@ -30,6 +30,11 @@ export default class BoxCarousel extends Component {
 
     const cur = this.state.cur + 1
     this.setState({cur})
+
+    let onEnding = this.state.cur === this.props.items.length - 3
+    if (onEnding) {
+      this.props.getMoreItems()
+    }
   }
 
   canSlidePrev = () => {
@@ -39,7 +44,7 @@ export default class BoxCarousel extends Component {
     return true
   }
   canSlideNext = () => {
-    let endOfRight = this.state.cur === this.props.list.length - 1
+    let endOfRight = this.state.cur === this.props.items.length - 1
     let sliding = this.state.sliding
     if (endOfRight || sliding) return false 
     return true
@@ -54,7 +59,7 @@ export default class BoxCarousel extends Component {
     }
   }
   handleKeyUp = (e)=> {
-    this.setState({keydown: false})
+    // this.setState({keydown: false})
   }
 
   componentDidMount() {
@@ -73,7 +78,7 @@ export default class BoxCarousel extends Component {
 
   render() {
     const {translateZ, cur} = this.state
-    const {list, Card, speed, transitionTimingFunction} = this.props
+    const {items, Card, speed, transitionTimingFunction} = this.props
     const carouselStyle = {
       transition:` transform ${speed/1000}s`,
       transitionTimingFunction: transitionTimingFunction,
@@ -85,12 +90,12 @@ export default class BoxCarousel extends Component {
               transform: ` translateZ(${-translateZ}px)`
             }}>
           {
-            list.map((o, i)=> {
+            items.map((o, i) => {
               if (Math.abs(cur - i) > 2) return
               let zIndex = Math.abs(cur - i) <= 1 ? 1 : 0
               return (
                 <div 
-                  key = {o}
+                  key = {i}
                   className="carousel__cell" 
                   style={{
                     ...carouselStyle,
@@ -109,13 +114,13 @@ export default class BoxCarousel extends Component {
   }
 }
 
-BoxCarousel.propTypes = {
-  list: PropTypes.element.isRequired,
-  Card: propTypes.element.isRequired,
-}
+// BoxCarousel.propTypes = {
+//   items: PropTypes.element.isRequired,
+//   Card: propTypes.element.isRequired,
+// }
 
 BoxCarousel.defaultProps = {
-  list: [0, 1, 2, 3, 4, 5, 6, 7],
+  items: [0, 1, 2, 3, 4, 5, 6, 7],
   Card: DefaultCard,
   auto: false,
   speed: 400,
