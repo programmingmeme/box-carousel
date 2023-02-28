@@ -27,9 +27,9 @@ export default class Card extends Component {
             {item.content}
           </div>
           <div className="image">
-            <div className="bg-blur" style={{backgroundImage: `url(${item.source.fileUrl})`}}>
+            <div className="bg-blur" style={{backgroundImage: `url(${item.source && item.source.fileUrl})`}}>
             </div>
-            <img src={item.source.fileUrl} alt="" srcset=""/>
+            <img src={item.source && item.source.fileUrl} alt="" srcset=""/>
           </div>
         </div>
         <div className="bottom">
